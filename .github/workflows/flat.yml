@@ -1,0 +1,52 @@
+name: data
+on:
+  schedule:
+    - cron: 0 0 * * *
+  workflow_dispatch: {}
+  push:
+    paths:
+      - .github/workflows/flat.yml
+      - ./postprocessing/parse-mobility-data.js
+      - ./queries/query.sql
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup deno
+        uses: denolib/setup-deno@v2
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Fetch data
+        uses: githubocto/flat@v2
+        with:
+          http_url: https://raw.githubusercontent.com/OxCGRT/USA-covid-policy/master/data/OxCGRT_US_subnational_05Aug2020.csv
+          downloaded_filename: ./raw-data/restrictions_per_state.csv
+      - name: Fetch data
+        uses: githubocto/flat@v2
+        with:
+          http_url: https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv
+          downloaded_filename: ./raw-data/covid_stats.csv
+      - name: Fetch data
+        uses: githubocto/flat@v2
+        with:
+          sql_connstring: ${{ secrets.FLAT_7OHR7X_CONNSTRING }}
+          sql_queryfile: ./queries/query.sql
+          downloaded_filename: ./raw-data/mobility.csv
+          postprocess: ./postprocessing/parse-mobility-data.js
+  postprocess:
+    runs-on: ubuntu-latest
+    needs: scheduled
+    steps:
+      - name: Setup deno
+        uses: denolib/setup-deno@v2
+      - uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Process files
+        run: deno run -A --unstable ./postprocessing/postprocess.js
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
