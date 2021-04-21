@@ -68,7 +68,7 @@ export const Gauge = ({
         <path d={filledArc || ""} fill="url(#Gauge__gradient)" />
         <line y1="-1" y2="-0.5" stroke="white" strokeWidth="0.027" />
         <circle
-          className="text-gray-600 stroke-current"
+          className="text-gray-600 stroke-current transition-all duration-400"
           cx={markerLocation[0]}
           cy={markerLocation[1]}
           r="0.24"
@@ -80,10 +80,10 @@ export const Gauge = ({
           transform={`rotate(${
             angle * (180 / Math.PI)
           }) translate(-0.2, -0.33)`}
-          className="text-gray-300 fill-current"
+          className="text-gray-300 fill-current transition-all duration-400"
         />
       </svg>
-      <div className="text-6xl line-height-1 text-gray-800 font-black tabular-nums text-center">
+      <div className="text-6xl line-height-1 text-gray-800 font-black tabular-nums text-center w-36">
         <span
           className="text-gray-800 font-black text-5xl"
           style={{ verticalAlign: "11%" }}

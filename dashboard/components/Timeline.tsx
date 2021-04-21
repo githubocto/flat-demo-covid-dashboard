@@ -1,21 +1,22 @@
 import React from "react";
-import { extent, scaleLinear, area, line, timeFormat } from "d3";
+import { extent, scaleLinear, scaleTime, area, line, timeFormat } from "d3";
 import flatten from "lodash/flatten";
 
-type AccessorType = (d: any) => number;
+type AccessorType = (d: any) => number | Date | null;
 type Props = {
   data: any[];
   xAccessor: AccessorType;
   yAccessors: AccessorType[];
 };
 
-const formatDate = timeFormat("%-b %-d, %Y");
+const formatDate = (d) =>
+  d.getDate() === 1 ? timeFormat("%-b %Y")(d) : timeFormat("%-b %-d, %Y")(d);
 export const Timeline = ({ data, xAccessor, yAccessors }: Props) => {
   // @ts-ignore
   const yExtent = extent(
     flatten(yAccessors.map((accessor) => data.map(accessor)))
   ) as [number, number];
-  const xScale = scaleLinear()
+  const xScale = scaleTime()
     .domain(extent(data, xAccessor) as [number, number])
     .range([0, 100]);
   const xTicks = xScale
