@@ -56,7 +56,7 @@ export const Gauge = ({
             height="1"
           >
             <image
-              href="/gauge_background.png"
+              href="gauge_background.png"
               x="0"
               y="0"
               width="2"

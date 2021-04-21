@@ -11,10 +11,7 @@ const IndexPage = () => {
   return (
     <Layout title="COVID state dashboard">
       <div className="flex">
-        <div
-          className="flex-none flex flex-col items-start p-6 overflow-auto mt-6"
-          // style={{ maxHeight: "100vh" }}
-        >
+        <div className="flex-none flex flex-col items-start p-6 overflow-auto mt-6">
           {states.map((state) => (
             <button
               className={`block w-full text-left py-1 px-4 ${
@@ -26,13 +23,6 @@ const IndexPage = () => {
               {state}
             </button>
           ))}
-          {/* <select value={state} onChange={(e) => setState(e.target.value)}>
-        {states.map((state) => (
-          <option key={state} value={state}>
-            {state}
-          </option>
-        ))}
-          </select> */}
         </div>
         <section className="mt-8 mb-24">
           <StateData state={selectedState} />
