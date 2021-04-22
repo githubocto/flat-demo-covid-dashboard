@@ -57,6 +57,7 @@ jobs:
         run: yarn && yarn deploy-action
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        working-directory: ./dashboard
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out

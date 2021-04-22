@@ -94,7 +94,7 @@ export const StateData = ({ data }: Props) => {
 
       <section className="mt-6 mb-24">
         <h2 className="heading">COVID Cases</h2>
-        <p className="text-gray-500 mb-6 font-light tracking-wide">
+        <p className="text-gray-500 mb-12 font-light tracking-wide">
           This data is from{" "}
           <a
             className="underline"
