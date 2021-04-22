@@ -1,35 +1,12 @@
 import React from "react";
-import Layout from "../components/Layout";
-import { StateData } from "../components/StateData";
-import data from "./../data.json";
-import { StateDataType } from "./../interfaces";
-
-const states = (data as StateDataType[]).map((d) => d["name"]).sort();
+import { useRouter } from "next/router";
 
 const IndexPage = () => {
-  const [selectedState, setSelectedState] = React.useState("Alabama");
-  return (
-    <Layout title="COVID state dashboard">
-      <div className="flex">
-        <div className="flex-none flex flex-col items-start p-6 overflow-auto mt-6">
-          {states.map((state) => (
-            <button
-              className={`block w-full text-left py-1 px-4 ${
-                state === selectedState ? "bg-indigo-50" : ""
-              }`}
-              key={state}
-              onClick={() => setSelectedState(state)}
-            >
-              {state}
-            </button>
-          ))}
-        </div>
-        <section className="mt-8 mb-24">
-          <StateData state={selectedState} />
-        </section>
-      </div>
-    </Layout>
-  );
+  const router = useRouter();
+  React.useEffect(() => {
+    router.push("/state/alabama");
+  }, []);
+  return null;
 };
 
 export default IndexPage;

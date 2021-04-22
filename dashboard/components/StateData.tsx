@@ -4,21 +4,14 @@ import { StateDataType } from "../interfaces";
 import { MobilityData } from "./MobilityData";
 import { Timeline } from "./Timeline";
 import { RestrictionsTimeline } from "./RestrictionsTimeline";
-import data from "../data.json";
 
-console.log(data);
 type Props = {
-  state: string;
+  data: StateDataType;
 };
 
-export const StateData = ({ state }: Props) => {
-  const stateData = (data as StateDataType[]).find(
-    (item) => item.name === state
-  );
-  if (!stateData) return null;
-
+export const StateData = ({ data }: Props) => {
   return (
-    <div className="p-6 px-10 lg:px-20" id={state}>
+    <div className="p-6 px-10 lg:px-20" id={data.name}>
       <div className="flex align-center">
         <h1 className="title relative">
           {/* <a
@@ -27,7 +20,7 @@ export const StateData = ({ state }: Props) => {
           >
             #
           </a> */}
-          {state}
+          {data.name}
         </h1>
       </div>
 
@@ -36,13 +29,13 @@ export const StateData = ({ state }: Props) => {
           Mobility{" "}
           <span className="font-extralight">(Change from baseline)</span>
         </h2>
-        <MobilityData data={stateData["mobility"]} />
+        <MobilityData data={data["mobility"]} />
       </section>
 
       <section className="mt-6 mb-44">
         <h2 className="heading">Restrictions</h2>
         <RestrictionsTimeline
-          data={stateData["restrictions"]}
+          data={data["restrictions"]}
           xAccessor={xAccessor}
         />
       </section>
@@ -50,13 +43,13 @@ export const StateData = ({ state }: Props) => {
       <section className="mt-6 mb-24">
         <h2 className="heading">COVID Cases</h2>
         <Timeline
-          data={stateData["covidStats"]}
+          data={data["covidStats"]}
           xAccessor={xAccessor}
           yAccessors={[(d) => d["Cases_Total"]]}
         />
         <h2 className="heading">COVID Deaths</h2>
         <Timeline
-          data={stateData["covidStats"]}
+          data={data["covidStats"]}
           xAccessor={xAccessor}
           yAccessors={[(d) => d["Deaths_Total"]]}
         />
