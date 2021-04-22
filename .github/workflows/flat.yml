@@ -52,6 +52,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
-      - name: Deploy dashboard with updated data
-        working-directory: ./dashboard
-        run: yarn && yarn deploy
