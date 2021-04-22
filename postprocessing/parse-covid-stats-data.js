@@ -10,6 +10,6 @@ const outputFilename = inputFilename.replace(".csv", ".json");
 const contents = await readCSV(inputFilename, { skipFirstRow: true });
 const parsedContents = contents.map((d) => ({ ...d, Date: String(d["Date"]) }));
 
-await removeFile(inputFilename);
+// await removeFile(inputFilename);
 
 await writeJSON(outputFilename, parsedContents);
