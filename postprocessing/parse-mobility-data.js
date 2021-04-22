@@ -12,7 +12,7 @@ const contents = await readCSV(inputFilename, { skipFirstRow: true });
 const parsedContents = contents
   .filter((d) => d["sub_region_1"] !== "sub_region_1")
   .map((d) => ({
-    date: format(parse(d["date"], "yyyyMMdd"), "MM/dd/yyyy"),
+    date: format(new Date(d["date"]), "MM/dd/yyyy"),
   }));
 
 await removeFile(inputFilename);

@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  extent,
-  range,
-  scaleLinear,
-  scaleTime,
-  area,
-  line,
-  timeFormat,
-} from "d3";
+import { extent, range, scaleLinear, scaleTime, line, timeFormat } from "d3";
 import fromPairs from "lodash/fromPairs";
 import startCase from "lodash/startCase";
 
