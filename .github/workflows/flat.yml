@@ -60,4 +60,4 @@ jobs:
         working-directory: ./dashboard
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./dashboard/out
