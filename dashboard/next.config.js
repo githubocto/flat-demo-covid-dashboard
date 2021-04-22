@@ -6,6 +6,6 @@ module.exports = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  assetPrefix: "/flat-demo-covid-data/",
-  basePath: "/flat-demo-covid-data",
+  assetPrefix: "/flat-demo-covid-dashboard/",
+  basePath: "/flat-demo-covid-dashboard",
 };
