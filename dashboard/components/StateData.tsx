@@ -58,5 +58,5 @@ export const StateData = ({ data }: Props) => {
   );
 };
 
-const parseDate = timeParse("%Y%m%d");
+const parseDate = timeParse("%d/%m/%Y");
 const xAccessor = (d: any) => parseDate(d["Date"]);
