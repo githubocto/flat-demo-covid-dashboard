@@ -12,7 +12,7 @@ const mobilityData = await readJSON("./raw-data/mobility.json");
 console.log("mobilityData");
 console.log(mobilityData[0]);
 
-const covidStatsData = await readCSV("./raw-data/covid_stats.csv");
+const covidStatsData = await readJSON("./raw-data/covid_stats.json");
 console.log("covidStatsData");
 console.log(covidStatsData[0]);
 
