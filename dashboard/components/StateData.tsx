@@ -29,11 +29,63 @@ export const StateData = ({ data }: Props) => {
           Mobility{" "}
           <span className="font-extralight">(Change from baseline)</span>
         </h2>
+        <p className="text-gray-500 mb-6 font-light tracking-wide">
+          This data is from{" "}
+          <a
+            className="underline"
+            href="https://www.google.com/covid19/mobility/"
+          >
+            Google's Community Mobility Reports
+          </a>
+          . We're looking at the percent change from baseline (the median value,
+          for the corresponding day of the week, from Jan 3 – Feb 6, 2020).
+        </p>
         <MobilityData data={data["mobility"]} />
       </section>
 
       <section className="mt-6 mb-44">
         <h2 className="heading">Restrictions</h2>
+        <div className="text-gray-500 mb-6 font-light tracking-wide">
+          <p>
+            This data is from{" "}
+            <a
+              className="underline"
+              href="https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker"
+            >
+              Oxford's COVID-19 Government Response Tracker
+            </a>
+            . A higher number indicates more restriction for a specific
+            category, broadly:
+          </p>
+          <ul className="my-4">
+            <li>
+              <strong>0</strong> no restrictions
+            </li>
+            <li>
+              <strong>1</strong> recommend closing
+            </li>
+            <li>
+              <strong>2</strong> required some closing
+            </li>
+            <li>
+              <strong>3</strong> required all closing
+            </li>
+            <li>
+              <strong>4</strong> ban all
+            </li>
+          </ul>
+          <p>
+            For specific levels for each category, see{" "}
+            <a
+              className="underline"
+              href="https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/codebook.md#containment-and-closure-policies"
+            >
+              the official codebook
+            </a>
+            .
+          </p>
+        </div>
+
         <RestrictionsTimeline
           data={data["restrictions"]}
           xAccessor={xAccessor}
@@ -42,6 +94,17 @@ export const StateData = ({ data }: Props) => {
 
       <section className="mt-6 mb-24">
         <h2 className="heading">COVID Cases</h2>
+        <p className="text-gray-500 mb-6 font-light tracking-wide">
+          This data is from{" "}
+          <a
+            className="underline"
+            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true"
+          >
+            this Google Sheet
+          </a>
+          , depicting up-to-date stats on COVID-19 cases and deaths per state in
+          the United States.
+        </p>
         <Timeline
           data={data["covidStats"]}
           xAccessor={xAccessor}
@@ -58,5 +121,5 @@ export const StateData = ({ data }: Props) => {
   );
 };
 
-const parseDate = timeParse("%d/%m/%Y");
+const parseDate = timeParse("%m/%d/%Y");
 const xAccessor = (d: any) => parseDate(d["Date"]);

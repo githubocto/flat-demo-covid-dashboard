@@ -33,16 +33,11 @@ export const RestrictionsTimeline = ({ data, xAccessor }: Props) => {
     .ticks(3)
     .map((tick) => [xScale(tick), formatDate(tick)]);
   const yScale = scaleLinear().domain([0, 5]).range([100, 0]);
-  const yTicks = yScale
-    .ticks(5)
-    .map((tick) => [yScale(tick), tick.toLocaleString()]);
+  const yTicks = [0, 1, 2, 3, 4].map((tick) => [
+    yScale(tick),
+    tick.toLocaleString(),
+  ]);
 
-  const areaGenerator = (yAccessor: AccessorType) =>
-    area()
-      .x((d: any) => xScale(xAccessor(d)))
-      .y0(100)
-      .y1((d: any) => yScale(yAccessor(d)))
-      .defined((d: any) => Number.isFinite(yAccessor(d)))(filteredData);
   const lineGenerator = (yAccessor: AccessorType) =>
     line()
       .x((d: any) => xScale(xAccessor(d)))
@@ -50,7 +45,6 @@ export const RestrictionsTimeline = ({ data, xAccessor }: Props) => {
       .defined((d: any) => Number.isFinite(yAccessor(d)))(filteredData);
 
   const lastPoint = filteredData.slice(-1)[0] || {};
-  console.log(lastPoint, filteredData);
   const keys = Object.keys(lastPoint).filter((d) => d !== "Date");
   const keyColors = fromPairs(
     keys.map((key, i) => [key, colors[i % colors.length]])
@@ -59,7 +53,6 @@ export const RestrictionsTimeline = ({ data, xAccessor }: Props) => {
     key,
     ([...data].reverse().find((d) => d[key] !== null) || {})[key],
   ]);
-  console.log(lastKeyValues);
 
   return (
     <div
