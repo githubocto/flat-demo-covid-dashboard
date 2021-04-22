@@ -15,6 +15,4 @@ const parsedContents = contents
     date: format(new Date(d["date"]), "MM/dd/yyyy"),
   }));
 
-await removeFile(inputFilename);
-
 await writeJSON(outputFilename, parsedContents);
