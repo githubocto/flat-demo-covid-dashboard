@@ -12,4 +12,4 @@ This uses a Flat Action to fetch data about COVID-19 and display it in a dashboa
 
 - create a dashboard on top of that data
 
-![Data flow diagram](./images/covid-dashboard-data-flow.png)
+![Data flow diagram](./readme-images/diagram.png)
