@@ -9,7 +9,7 @@ const inputFilename = Deno.args[0];
 const outputFilename = inputFilename.replace(".csv", ".json");
 
 const contents = await readCSV(inputFilename, { skipFirstRow: true });
-Date.parse("20210304");
+
 const parsedContents = contents.map((d) => ({
   ...d,
   Date: format(parse(d["Date"], "yyyyMMdd"), "MM/dd/yyyy"),

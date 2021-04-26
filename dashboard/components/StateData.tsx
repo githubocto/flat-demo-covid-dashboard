@@ -88,7 +88,7 @@ export const StateData = ({ data }: Props) => {
 
         <RestrictionsTimeline
           data={data["restrictions"]}
-          xAccessor={xAccessor}
+          xAccessor={xAccessorRestrictions}
         />
       </section>
 
@@ -123,3 +123,4 @@ export const StateData = ({ data }: Props) => {
 
 const parseDate = timeParse("%m/%d/%Y");
 const xAccessor = (d: any) => parseDate(d["Date"]);
+const xAccessorRestrictions = (d: any) => timeParse("%Y%m%d")(d["Date"]);

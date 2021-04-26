@@ -9,17 +9,8 @@ const outputFilename = "./dashboard/data.json";
 
 // load data saved from Flat
 const mobilityData = await readJSON("./raw-data/mobility.json");
-console.log("mobilityData");
-console.log(mobilityData[0]);
-
 const covidStatsData = await readJSON("./raw-data/covid_stats.json");
-console.log("covidStatsData");
-console.log(covidStatsData[0]);
-
 const restrictionsData = await readCSV("./raw-data/restrictions_per_state.csv");
-console.log("restrictionsData");
-console.log(restrictionsData[0]);
-
 const states = await readJSON("./postprocessing/stateNames.json");
 
 // combine our data sources into a single array of objects
