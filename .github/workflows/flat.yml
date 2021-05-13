@@ -14,7 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.x
       - name: Check out repo
         uses: actions/checkout@v2
       - name: Fetch data
@@ -40,7 +42,9 @@ jobs:
     needs: scheduled
     steps:
       - name: Setup deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.x
       - uses: actions/checkout@master
         with:
           persist-credentials: false
