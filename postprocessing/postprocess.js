@@ -53,8 +53,8 @@ const combinedData = states
     };
     const covidStats = covidStatsData
       .filter((d) => d["State"] === name)
-      .map(({ Date, cases, deaths }) => ({
-        Date,
+      .map(({ date, cases, deaths }) => ({
+        Date: date,
         cases: cases.length ? +cases : null,
         deaths: deaths.length ? +deaths : null,
       }));
