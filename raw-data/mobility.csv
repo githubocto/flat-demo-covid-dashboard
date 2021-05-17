@@ -1,5 +1,4 @@
 sub_region_1,date,retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline
-sub_region_1,0000-00-00,0,0,0,0,0,0
 Mississippi,1617753600000,16,8,16,25,-19,2
 Montana,1617753600000,11,11,61,12,-16,2
 Oklahoma,1617753600000,12,11,28,13,-20,3
