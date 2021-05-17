@@ -27,7 +27,7 @@ jobs:
       - name: Fetch data
         uses: githubocto/flat@v2
         with:
-          http_url: https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv
+          http_url: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv
           downloaded_filename: ./raw-data/covid_stats.csv
           postprocess: ./postprocessing/parse-covid-stats-data.js
       - name: Fetch data

@@ -98,9 +98,9 @@ export const StateData = ({ data }: Props) => {
           This data is from{" "}
           <a
             className="underline"
-            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true"
+            href="https://github.com/nytimes/covid-19-data#cumulative-cases-and-deaths"
           >
-            this Google Sheet
+            this NYTimes GitHub repository
           </a>
           , depicting up-to-date stats on COVID-19 cases and deaths per state in
           the United States.
@@ -108,13 +108,13 @@ export const StateData = ({ data }: Props) => {
         <Timeline
           data={data["covidStats"]}
           xAccessor={xAccessor}
-          yAccessors={[(d) => d["Cases_Total"]]}
+          yAccessors={[(d) => d["cases"]]}
         />
         <h2 className="heading">COVID Deaths</h2>
         <Timeline
           data={data["covidStats"]}
           xAccessor={xAccessor}
-          yAccessors={[(d) => d["Deaths_Total"]]}
+          yAccessors={[(d) => d["deaths"]]}
         />
       </section>
     </div>

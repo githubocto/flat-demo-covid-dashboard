@@ -12,7 +12,7 @@ const contents = await readCSV(inputFilename, { skipFirstRow: true });
 
 const parsedContents = contents.map((d) => ({
   ...d,
-  Date: format(parse(d["Date"], "yyyyMMdd"), "MM/dd/yyyy"),
+  Date: format(parse(d["Date"], "yyyy-MM-dd"), "MM/dd/yyyy"),
 }));
 
 // await removeFile(inputFilename);

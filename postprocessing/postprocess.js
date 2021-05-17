@@ -52,13 +52,11 @@ const combinedData = states
         : null,
     };
     const covidStats = covidStatsData
-      .filter((d) => d["State"] === abbreviation)
-      .map(({ Date, Cases_Total, Deaths_Total, Hosp_Total, Tests_Total }) => ({
+      .filter((d) => d["State"] === name)
+      .map(({ Date, cases, deaths }) => ({
         Date,
-        Cases_Total: Cases_Total.length ? +Cases_Total : null,
-        Deaths_Total: Deaths_Total.length ? +Deaths_Total : null,
-        Hosp_Total: Hosp_Total.length ? +Hosp_Total : null,
-        Tests_Total: Tests_Total.length ? +Tests_Total : null,
+        cases: cases.length ? +cases : null,
+        deaths: deaths.length ? +deaths : null,
       }));
 
     const restrictions = restrictionsData
