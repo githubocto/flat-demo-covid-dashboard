@@ -33,7 +33,7 @@ jobs:
       - name: Fetch data
         uses: githubocto/flat@v2
         with:
-          sql_connstring: ${{ secrets.FLAT_7OHR7X_CONNSTRING }}
+          sql_connstring: ${{ secrets.DB_CONNECTION_STRING }}
           sql_queryfile: ./queries/query.sql
           downloaded_filename: ./raw-data/mobility.csv
           postprocess: ./postprocessing/parse-mobility-data.js
