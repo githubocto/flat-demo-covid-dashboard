@@ -20,7 +20,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
       - name: Fetch data
-        uses: githubocto/flat@v2
+        uses: githubocto/flat@v3
         with:
           http_url: https://raw.githubusercontent.com/OxCGRT/USA-covid-policy/master/data/OxCGRT_US_subnational_05Aug2020.csv
           downloaded_filename: ./raw-data/restrictions_per_state.csv
