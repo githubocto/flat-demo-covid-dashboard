@@ -45,10 +45,8 @@ jobs:
         uses: denoland/setup-deno@main
         with:
           deno-version: v1.x
-      - uses: actions/checkout@master
-        with:
-          persist-credentials: false
-          fetch-depth: 0
+      - name: Checkout code
+        uses: actions/checkout@master
       - name: Process files
         run: deno run -A --unstable ./postprocessing/postprocess.js
       - name: Commit & Push changes
