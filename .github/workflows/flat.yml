@@ -1,4 +1,4 @@
-dname: data
+name: data
 on:
   schedule:
     - cron: 0 0 */2 * *
