@@ -3,7 +3,7 @@ import {
   readJSON,
   writeJSON,
   removeFile,
-} from "https://deno.land/x/flat@0.0.11/mod.ts";
+} from "https://deno.land/x/flat@0.0.14/mod.ts";
 
 const outputFilename = "./dashboard/data.json";
 
