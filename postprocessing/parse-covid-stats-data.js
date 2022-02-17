@@ -2,7 +2,7 @@ import {
   readCSV,
   writeJSON,
   removeFile,
-} from "https://deno.land/x/flat@0.0.8/mod.ts";
+} from "https://deno.land/x/flat@0.0.14/mod.ts";
 import { parse, format } from "https://deno.land/std@0.69.0/datetime/mod.ts";
 
 const inputFilename = Deno.args[0];
